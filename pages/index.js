@@ -17,7 +17,7 @@ export default function Home({ books }) {
         <div className={styles.grid}>
 
           {books.map((book) => (
-            <a href={`/book/${book._id}`} className={styles.card}>
+            <a key={book._id} href={`/book/${book._id}`} className={styles.card}>
               <h3>{book.title}</h3>
               <img alt="Book portrait" src={book.image} className={styles.image_book}></img>
             </a>
@@ -42,7 +42,7 @@ export default function Home({ books }) {
 
 export async function getStaticProps() {
   const token = process.env.API_TOKEN;
-  const res = await fetch('https://devotionals-api.herokuapp.com/api/v1/books', 
+  const res = await fetch('https://devotionals-api.herokuapp.com/api/v1/books?exclude=devotionals&exclude=stolen_from',
   {
     headers: {
       'Authorization': `Bearer ${token}`,
