@@ -50,8 +50,6 @@ export async function getStaticProps() {
   });
   const books = await res.json();
 
-  console.log(books);
-
   return {
     props: {
       books: books,
