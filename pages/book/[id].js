@@ -5,7 +5,7 @@ export default function Book({ book }) {
   return (
     <div className={styles.container}>
       <Head>
-        <title>ASD Devotionals | Books</title>
+        <title>ASD Devotionals | Book</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
@@ -18,7 +18,7 @@ export default function Book({ book }) {
         <div className={styles.grid}>
 
           {book.devotionals.map((devotional) => (
-            <a href={`/book/${book._id}/${devotional._id}`} className={styles.card}>
+            <a key={devotional._id} href={`/book/${book._id}/${devotional._id}`} className={styles.card}>
               <h3>{devotional.title}</h3>
               <p>{devotional.date}</p>
             </a>
@@ -43,7 +43,7 @@ export default function Book({ book }) {
 
 export async function getStaticPaths() {
   const token = process.env.API_TOKEN;
-  const res = await fetch(`https://devotionals-api.herokuapp.com/api/v1/books`, 
+  const res = await fetch(`https://devotionals-api.herokuapp.com/api/v1/books`,
   {
     headers: {
       'Authorization': `Bearer ${token}`,
