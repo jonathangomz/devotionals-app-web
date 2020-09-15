@@ -35,6 +35,23 @@
   align-items: center;
 }
 
+.return {
+  align-self: flex-start;
+  border: 1px solid black;
+  border-radius: 5px;
+  background-color: black;
+  color: white;
+  transition-duration: 300ms;
+  padding: 6px 12px;
+}
+
+.return:hover,
+.return:focus,
+.return:active {
+  background-color: white;
+  color: black;
+}
+
 .title a {
   color: #0070f3;
   text-decoration: none;
@@ -109,6 +126,10 @@
   margin: 0;
   font-size: 1.25rem;
   line-height: 1.5;
+}
+
+.image_book {
+  width: 100%;
 }
 
 .logo {
